@@ -1,6 +1,45 @@
-@bookstore_HostAddress = http://localhost:5002
+@bookstore_HostAddress = http://localhost:5000
 
-GET {{bookstore_HostAddress}}/weatherforecast/
+### Get all users
+GET {{bookstore_HostAddress}}/api/users
 Accept: application/json
+
+###
+
+### Get a user by ID
+GET {{bookstore_HostAddress}}/api/users/1
+Accept: application/json
+
+###
+
+### Create a new user
+POST {{bookstore_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "username": "newuser",
+  "passwordHash": "hashedpassword",
+  "email": "newuser@example.com",
+  "role": "UserRoleValue"
+}
+
+###
+
+### Update a user
+PUT {{bookstore_HostAddress}}/api/users/1
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "username": "updateduser",
+  "passwordHash": "updatedhashedpassword",
+  "email": "updateduser@example.com",
+  "role": "UpdatedUserRoleValue"
+}
+
+###
+
+### Delete a user
+DELETE {{bookstore_HostAddress}}/api/users/1
 
 ###
